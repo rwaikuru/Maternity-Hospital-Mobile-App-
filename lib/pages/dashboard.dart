@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pumwani/pages/obhistory.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -11,8 +12,9 @@ class DashboardPage extends StatelessWidget {
           title: const Text(" Doctors Dashboard",
           style: TextStyle(color: Colors.black),
           ),
-          leading: IconButton(
-            icon: const Icon(Icons.menu,
+          leading: Builder(
+            builder: (context) => IconButton(
+             icon: const Icon(Icons.menu,
           color: Colors.black,
           ),
           onPressed: () {
@@ -20,34 +22,30 @@ class DashboardPage extends StatelessWidget {
           },
           ),
         ),
-        
+        ),
         drawer: Drawer(
           child:ListView(
             padding: EdgeInsets.zero,
              children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
+              Container(height: 100,
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFF1FDE60), Colors.white],
+                  colors: [Colors.white70, Colors.white],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
               ),
-       child: Text(
+       child: const Center(
+        child: Text(
                 'Sidebar Content',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 20,
                 ),
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {
-                // Handle navigation to home page or any other action here
-              },
-            ),
+              ),
+               
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
@@ -77,14 +75,14 @@ class DashboardPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
+            child: Column(
+                children: [
                  Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search number',
-                      hintStyle: TextStyle(color: Colors.black),
-                      prefixIcon: Icon(Icons.search),
+                      hintStyle: const TextStyle(color: Colors.black),
+                      prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -93,20 +91,33 @@ class DashboardPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.filter_list),
-                  onPressed: () {
-                    // Handle filter button press or any other action here
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed:(){
+             Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context) => const Obhistory()),
+              );
                   },
-                ),
-              ],
-            ),
-          ),
-         
+                  child: const Text('Ob History'),
+                   ),               
         ]
         ),
-    
-    );
+                    ),
+        ]
+        ),
+        );
+                    
+                  
+                  
+                
+                
+            
+             
+             
+          
+         
+      
         
       
   }
