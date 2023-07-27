@@ -96,7 +96,8 @@ class DashboardPage extends StatelessWidget {
                   onPressed:(){
              Navigator.push(
               context, 
-              MaterialPageRoute(builder: (context) => const Obhistory()),
+              MaterialPageRoute(builder: (context) =>
+                Obhistory(currentPage:1, totalPages: 3,)),
               );
                   },
                   child: const Text('Ob History'),
